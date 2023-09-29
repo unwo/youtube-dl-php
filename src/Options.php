@@ -164,6 +164,7 @@ class Options
 
     // Video Format Options
     private ?string $format = null;
+    private ?string $formatSort = null;
     private bool $youtubeSkipDashManifest = false;
     private ?string $mergeOutputFormat = null;
 
@@ -1171,6 +1172,14 @@ class Options
         return $new;
     }
 
+    public function formatSort(?string $formatSort): self
+    {
+        $new = clone $this;
+        $new->formatSort = $formatSort;
+
+        return $new;
+    }
+
     /**
      * Do not download the DASH manifests and related data on YouTube videos.
      */
@@ -1613,6 +1622,7 @@ class Options
             'max-sleep-interval' => $this->maxSleepInterval,
             // Video Format Options
             'format' => $this->format,
+            'format-sort'=>$this->formatSort,
             'youtube-skip-dash-manifest' => $this->youtubeSkipDashManifest,
             'merge-output-format' => $this->mergeOutputFormat,
             // Subtitle Options
